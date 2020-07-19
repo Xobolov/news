@@ -41,14 +41,23 @@ class PostController extends Controller
     {
         $validated = $request->validated();
 
-        $data = [
+//        dd($validated['content']);
 
-            'locale' => $validated['locale'],
-            'title' => $validated['title'],
-            'content' => $validated['content'],
-        ];
+        $post = new Post();
 
-        Post::create($data);
+        foreach (config("translatable.locales") as $locale)
+        {
+//            dd($post->translateOrNew($locale)->title);
+            $post->translateOrNew($locale)->title = $validated["title"][$locale];
+            $post->translateOrNew($locale)->content = $validated["content"][$locale];
+//        dd($validated['title'][$locale]);
+
+//            dd($post->translateOrNew($locale)->title);
+
+        }
+        $post->save();
+
+        //Post::create($validated);
 
         return redirect()->route('panel.posts.index');
     }

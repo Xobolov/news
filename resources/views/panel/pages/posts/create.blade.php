@@ -37,41 +37,30 @@
 {{--                @endforeach--}}
 {{--            </select>--}}
 
-            <!-- Locale -->
-            <div class="md-form">
-                <input type="text" id="form1" class="form-control" name="azlocale">
-                <label for="form1">Az Locale</label>
-            </div>
-
-            <div class="md-form">
-                <input type="text" id="form1" class="form-control" name="enlocale">
-                <label for="form1">En Locale</label>
-            </div>
-
 
 
             <!-- Title -->
             <div class="md-form">
-                <input type="text" id="form1" class="form-control" name="aztitle">
+                <input type="text" id="form1" class="form-control" name="title[az]">
                 <label for="form1">Az Title</label>
             </div>
 
             <!-- Title -->
             <div class="md-form">
-                <input type="text" id="form1" class="form-control" name="entitle">
-                <label for="form1">En Title</label>
+                <input type="text" id="form2" class="form-control" name="title[en]">
+                <label for="form2">En Title</label>
             </div>
 
             <!-- Content -->
             <div class="md-form">
-                <input type="text" id="form1" class="form-control" name="azcontent">
-                <label for="form1">Az Content</label>
+                <input type="text" id="form3" class="form-control" name="content[az]">
+                <label for="form3">Az Content</label>
             </div>
 
             <!-- Content -->
             <div class="md-form">
-                <input type="text" id="form1" class="form-control" name="encontent">
-                <label for="form1">En Content</label>
+                <input type="text" id="form4" class="form-control" name="content[en]">
+                <label for="form4">En Content</label>
             </div>
 
             <button class="btn btn-success">Create</button>

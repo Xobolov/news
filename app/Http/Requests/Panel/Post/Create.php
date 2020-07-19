@@ -23,13 +23,15 @@ class Create extends FormRequest
      */
     public function rules()
     {
-        return [
-            'azlocale' => 'required|max:255',
-            'enlocale' => 'required|max:255',
-            'aztitle' => 'required|max:255',
-            'entitle' => 'required|max:255',
-            'azcontent' => 'required|max:255',
-            'encontent' => 'required|max:255',
-        ];
+//        $title = array();
+//        $content = array();
+
+        foreach (config("app.locales") as $name)
+        {
+            $title['title'][$name] = ['required'];
+            $content['content'][$name] = ['required'];
+        }
+        $return = array_merge( $title, $content );
+        return $return;
     }
 }

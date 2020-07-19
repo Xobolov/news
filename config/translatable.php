@@ -10,14 +10,7 @@ return [
     | Contains an array with the applications available locales.
     |
     */
-    'locales' => [
-        'en',
-        'fr',
-        'es' => [
-            'MX', // mexican spanish
-            'CO', // colombian spanish
-        ],
-    ],
+    'locales' => config('app.locales'),
 
     /*
     |--------------------------------------------------------------------------
