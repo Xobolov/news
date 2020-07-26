@@ -35,6 +35,7 @@ Route::group(['prefix' => 'panel', 'middleware'=>'auth'], function () {
         Route::get('/', ['as' => 'panel.posts.index', 'uses' => 'PostController@index']);
         Route::get('/create', ['as' => 'panel.posts.create', 'uses' => 'PostController@create']);
         Route::post('/store', ['as' => 'panel.posts.store', 'uses' => 'PostController@store']);
+        Route::get('/edit/{id}', ['as' => 'panel.posts.edit', 'uses' => 'PostController@edit']);
 
     });
 

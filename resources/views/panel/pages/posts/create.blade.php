@@ -29,15 +29,6 @@
         <!-- Form -->
         <form action="{{route('panel.posts.store')}}" method="POST">
         @csrf
-            <!-- Post -->
-{{--            <select class="mdb-select md-form">--}}
-{{--                <option value="" disabled selected>Choose your option</option>--}}
-{{--                @foreach($posts as $post)--}}
-{{--                <option value="1">{{$post->id}}</option>--}}
-{{--                @endforeach--}}
-{{--            </select>--}}
-
-
 
             <!-- Title -->
             <div class="md-form">

@@ -23,8 +23,8 @@ class Create extends FormRequest
      */
     public function rules()
     {
-//        $title = array();
-//        $content = array();
+       $title = array();
+       $content = [];
 
         foreach (config("app.locales") as $name)
         {

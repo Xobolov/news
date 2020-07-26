@@ -43,7 +43,8 @@
         <table class="table text-center">
             <thead>
             <tr>
-                <th scope="col">Post Id</th>
+                <th scope="col">Post ID</th>
+                <th scope="col">Translation ID</th>
                 <th scope="col">Locale</th>
                 <th scope="col">Slug</th>
                 <th scope="col">Update</th>
@@ -53,11 +54,15 @@
             <tbody>
 
             @foreach($posts as $key => $post)
+
+                @foreach(config("translatable.locales") as $locale)
+
                 <tr>
-                    <th scope="row">{{$post['id']}}</th>
-                    <td></td>
-                    <td>Slug</td>
-                    <td><a href="#"><button type="button" class="btn btn-outline-primary btn-rounded waves-effect">Update</button></a></td>
+                    <th scope="row">{{$post->id}}</th>
+                    <th scope="row">{{$post->translate($locale)->id}}</th>
+                    <td>{{$post->translate($locale)->title}}</td>
+                    <td>{{$post->translate($locale)->content}}</td>
+                    <td><a href="{{route('panel.posts.edit',$post->translate($locale)->id)}}"><button type="button" class="btn btn-outline-primary btn-rounded waves-effect">Update</button></a></td>
                     <td>
                         <form action="#" method="POST">
                             @csrf
@@ -66,6 +71,9 @@
                         </form>
                     </td>
                 </tr>
+
+                @endforeach
+
             @endforeach
             </tbody>
         </table>

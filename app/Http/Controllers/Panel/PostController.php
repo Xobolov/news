@@ -16,7 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderby('id','desc')->get();
+        $posts = Post::orderByTranslation('id','desc')->get();
        return view('panel.pages.posts.index', compact('posts'));
     }
 
@@ -41,19 +41,12 @@ class PostController extends Controller
     {
         $validated = $request->validated();
 
-//        dd($validated['content']);
-
         $post = new Post();
 
         foreach (config("translatable.locales") as $locale)
         {
-//            dd($post->translateOrNew($locale)->title);
             $post->translateOrNew($locale)->title = $validated["title"][$locale];
             $post->translateOrNew($locale)->content = $validated["content"][$locale];
-//        dd($validated['title'][$locale]);
-
-//            dd($post->translateOrNew($locale)->title);
-
         }
         $post->save();
 
@@ -81,7 +74,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('panel.pages.posts.edit', compact('post'));
     }
 
     /**
